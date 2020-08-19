@@ -8,17 +8,17 @@ import * as yup from 'yup'
 import '../App.css';
 
 const initialFormValues = {
-  Name: '',
-  Email: '',
-  Password: '',
-  Terms: '' //(checkbox)
+  name: '',
+  email: '',
+  password: '',
+  terms: '' //(checkbox)
 };
 
 const initialFormErrors = {
-  Name: '',
-  Email: '',
-  Password: '',
-  Terms: '' //(checkbox)
+  name: '',
+  email: '',
+  password: '',
+  terms: '' //(checkbox)
 };
 
 const initialUsers = [{ Name: 'ed' }];
@@ -31,10 +31,17 @@ function App() {
   const [disabled, setDisabled] = useState(initialDisable)
 
 
+
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <Form />
+        <Form
+          disabled={disabled}
+          errors={formErrors}
+          values={formValues}
+        />
 
         {`hello world`}
 
