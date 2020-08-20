@@ -4,9 +4,10 @@ export default function Form(props) {
   const {
     values,
     submit,
+    inputChange,
+    checkboxChange,
     disabled,
-    errors,
-    inputChange
+    errors
   } = props;
 
   const onSubmit = e => {
@@ -14,18 +15,19 @@ export default function Form(props) {
     submit()
   }
 
-  const onCheckBoxChanged = e => {
-    const { name, checked } = e.target
-    onCheckBoxChanged(name, checked)
-  }
-
   const onInputChange = e => {
     const { name, value } = e.target
     inputChange(name, value)
   }
 
+  const onCheckBoxChange = e => {
+    const { name, checked } = e.target
+    checkboxChange(name, checked)
+  }
+
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <div className='submit-container'>
         <h2>Add a User</h2>
         <button disabled={disabled}>Submit</button>
@@ -71,10 +73,11 @@ export default function Form(props) {
           <input
             type='checkbox'
             name='terms'
-            checked={values.terms}
-            onChange={onCheckBoxChanged}
+            checked={values.terms.accept}
+            onChange={onCheckBoxChange}
           />
         </label>
+
       </div>
     </form>
   )

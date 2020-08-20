@@ -7,6 +7,6 @@ export default function User(props) {
     <div>
       <h2>{details.name}</h2>
       <p>{details.email}</p>
-    </div >
+    </div>
   )
 }
