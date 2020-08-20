@@ -17,9 +17,6 @@ describe('User Form App', () => {
 
 
 
-
-
-
     describe('Submitting a new form', () => {
       it('Can navigate to http://localhost:3000', () => {
         cy.visit('http://localhost:3000')
@@ -27,7 +24,9 @@ describe('User Form App', () => {
 
       it('Can type something in the inputs and submit', () => {
         nameInput().type('Name')
+        submitButton().should('be.disabled')
         emailInput().type('Email@mail.com')
+        submitButton().should('be.disabled')
         passwordInput().type('Password')
         submitButton().click()
       })
