@@ -16,7 +16,7 @@ const initialFormValues = {
   password: '',
   terms: {
     accept: false,
-  } //(checkbox)
+  }
 };
 
 const initialFormErrors = {
