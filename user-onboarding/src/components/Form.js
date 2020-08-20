@@ -1,8 +1,18 @@
 import React from 'react'
 
 export default function Form(props) {
-  const { disabled, errors, values, inputChange } = props;
+  const {
+    values,
+    submit,
+    disabled,
+    errors,
+    inputChange
+  } = props;
 
+  const onSubmit = e => {
+    e.preventDefault()
+    submit()
+  }
 
   const onCheckBoxChanged = e => {
     const { name, checked } = e.target
@@ -13,7 +23,6 @@ export default function Form(props) {
     const { name, value } = e.target
     inputChange(name, value)
   }
-
 
   return (
     <form>
@@ -31,42 +40,41 @@ export default function Form(props) {
       <div className='form-inputs'>
         <h3>Enter Your Information Here: </h3>
 
-        <lable>Name:
+        <label>Name:&nbsp;
           <input
             type='text'
             value={values.name}
             name='name'
             onChange={onInputChange}
           />
-        </lable>
+        </label>
 
-        <lable>Email:
+        <label>Email:&nbsp;
         <input
             type='email'
             value={values.email}
             name='email'
             onChange={onInputChange}
           />
-        </lable>
+        </label>
 
-        <lable>Password (3 characters minimum):
+        <label>Password (3 characters minimum):&nbsp;
         <input
             type='password'
             value={values.pasword}
             name='password'
             onChange={onInputChange}
           />
-        </lable>
+        </label>
 
-        <lable>Terms:
+        <label>Terms:&nbsp;
           <input
             type='checkbox'
             name='terms'
             checked={values.terms}
             onChange={onCheckBoxChanged}
           />
-        </lable>
-
+        </label>
       </div>
     </form>
   )
